@@ -12,9 +12,9 @@ const GroceryDeliveryScreen = () => {
         <View style={styles.actionContainer}>
           <View style={styles.phoneInputContainer}>
             <Image source={require('./assets/bangladesh.jpg')} style={styles.flagIcon} />
+            <Text style={styles.bangLaDeshPhone}> +880 </Text>
             <TextInput
               style={styles.input}
-              placeholder="+880"
               placeholderTextColor="#888"
               keyboardType="phone-pad"
               value={phoneNumber}
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   flagIcon: {
     width: 30,
     height: 18,
-    marginRight: 10,
+    marginRight: 3,
   },
   input: {
     flex: 1,
