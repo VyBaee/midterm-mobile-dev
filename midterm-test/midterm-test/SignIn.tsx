@@ -1,23 +1,33 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native';
 
 const GroceryDeliveryScreen = () => {
+  const [phoneNumber, setPhoneNumber] = useState('');
+
   return (
     <View style={styles.container}>
       <Image source={require('./assets/groceries.jpg')} style={styles.backgroundImage} />
       <View style={styles.contentContainer}>
         <Text style={styles.title}>Get your groceries with nectar</Text>
         <View style={styles.actionContainer}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>+880</Text>
-          </TouchableOpacity>
+          <View style={styles.phoneInputContainer}>
+            <Image source={require('./assets/bangladesh.jpg')} style={styles.flagIcon} />
+            <TextInput
+              style={styles.input}
+              placeholder="+880"
+              placeholderTextColor="#888"
+              keyboardType="phone-pad"
+              value={phoneNumber}
+              onChangeText={setPhoneNumber}
+            />
+          </View>
           <View style={styles.socialContainer}>
             <TouchableOpacity style={styles.socialButton}>
               <Image source={require('./assets/google-logo.png')} style={styles.socialIcon} />
               <Text style={styles.socialButtonText}>Continue with Google</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.socialButton}>
-            <Image source={require('./assets/facebook-logo.png')} style={styles.socialIcon} />
+              <Image source={require('./assets/facebook-logo.png')} style={styles.socialIcon} />
               <Text style={styles.socialButtonText}>Continue with Facebook</Text>
             </TouchableOpacity>
           </View>
@@ -31,7 +41,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'flex-end', // thay đổi ở đây
+    justifyContent: 'flex-end',
   },
   backgroundImage: {
     flex: 1,
@@ -43,7 +53,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
     padding: 20,
-    marginBottom: 20, // thêm margin ở đây
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
@@ -55,17 +65,27 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: '#42B72A',
+  phoneInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
     paddingVertical: 12,
-    paddingHorizontal: 30,
+    paddingHorizontal: 10,
     borderRadius: 5,
+    borderColor: '#ccc',
+    borderWidth: 1,
     marginBottom: 20,
+    width: '100%',
   },
-  buttonText: {
-    color: '#fff',
+  flagIcon: {
+    width: 30,
+    height: 18,
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
     fontSize: 16,
-    fontWeight: 'bold',
+    color: '#333',
   },
   socialContainer: {
     width: '100%',
