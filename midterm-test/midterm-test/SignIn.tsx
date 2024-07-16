@@ -12,7 +12,7 @@ const GroceryDeliveryScreen = () => {
         <View style={styles.actionContainer}>
           <View style={styles.phoneInputContainer}>
             <Image source={require('./assets/bangladesh.jpg')} style={styles.flagIcon} />
-            <Text style={styles.bangLaDeshPhone}> +880 </Text>
+            <Text style={styles.bangLaDeshPhone}>+880</Text>
             <TextInput
               style={styles.input}
               placeholderTextColor="#888"
@@ -21,6 +21,7 @@ const GroceryDeliveryScreen = () => {
               onChangeText={setPhoneNumber}
             />
           </View>
+          <Text style={styles.textConnect}>Or connect with social media</Text>
           <View style={styles.socialContainer}>
             <TouchableOpacity style={styles.socialButton}>
               <Image source={require('./assets/google-logo.png')} style={styles.socialIcon} />
@@ -86,6 +87,12 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     color: '#333',
+  },
+  textConnect: {
+    color: 'gray',
+    fontSize: 12,
+    marginBottom: 10,
+    fontWeight: 600,
   },
   socialContainer: {
     width: '100%',
